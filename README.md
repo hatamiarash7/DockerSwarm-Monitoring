@@ -9,7 +9,7 @@ Set your options :
 * prometheus data sources
 
 ```shell
-docker stack deploy -c docker-stack.yml monitoring
+docker stack deploy -c docker-stack.yml Monitoring
 ```
 
 Access Grafana : [http://grafana.localhost](http://grafana.localhost)  
