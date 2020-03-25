@@ -37,7 +37,7 @@ services:
         condition: on-failure
 
   prometheus:
-    image: prom/prometheus
+    image: prom/prometheus:v2.17.0
     volumes:
       - ./prometheus/:/etc/prometheus/
       - prometheus_data:/prometheus
