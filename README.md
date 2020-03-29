@@ -14,3 +14,12 @@ docker stack deploy -c docker-stack.yml Monitoring
 
 Access Grafana : [http://grafana.localhost](http://grafana.localhost)  
 Access Prometheus : [http://prometheus.localhost](http://prometheus.localhost)
+
+### Extra sources
+
+You can update or remove this sources
+
+* Docker Registry v2
+  * Set your registry address in `docker-registry` job
+* PiHole
+  * Configure ENV data of PiHole server in `pihole/config` file
