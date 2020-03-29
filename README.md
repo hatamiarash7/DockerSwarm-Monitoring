@@ -23,4 +23,5 @@ You can update or remove this sources
   * Set your registry address in `docker-registry` job
 * [PiHole](https://pi-hole.net)
   * Configure ENV data of PiHole server in `pihole/config` file
+  * You should install piechart plugin : `grafana-cli plugins install grafana-piechart-panel`
   * You can use dashboard id : `10176`
