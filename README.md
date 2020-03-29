@@ -19,8 +19,8 @@ Access Prometheus : [http://prometheus.localhost](http://prometheus.localhost)
 
 You can update or remove this sources
 
-* Docker Registry v2
+* [Docker Registry v2](https://docs.docker.com/registry)
   * Set your registry address in `docker-registry` job
-* PiHole
+* [PiHole](https://pi-hole.net)
   * Configure ENV data of PiHole server in `pihole/config` file
   * You can use dashboard id : `10176`
