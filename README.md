@@ -24,4 +24,7 @@ You can update or remove this sources
 * [PiHole](https://pi-hole.net)
   * Configure ENV data of PiHole server in `pihole/config` file
   * You should install piechart plugin : `grafana-cli plugins install grafana-piechart-panel`
-  * You can use dashboard id : `10176`
+  * You can use dashboard : `10176`
+* [MinIO](https://min.io)
+  * Set address of cluster nodes  in `minio` job
+  * You can use dashboard : `11568`

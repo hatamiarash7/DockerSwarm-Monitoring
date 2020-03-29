@@ -44,3 +44,10 @@ scrape_configs:
   - job_name: 'pihole'
     static_configs:
       - targets: ['pihole:9617']
+
+  - job_name: minio
+    metrics_path: /minio/prometheus/metrics
+    scrape_interval: 10s
+    scheme: http
+    static_configs:
+      - targets: ['192.168.1.14:9002', '192.168.1.14:9003', '192.168.1.14:9004', '192.168.1.14:9005']
