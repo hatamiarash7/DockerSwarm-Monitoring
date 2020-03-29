@@ -27,4 +27,4 @@ You can update or remove this sources
   * You can use dashboard : `10176`
 * [MinIO](https://min.io)
   * Set address of cluster nodes  in `minio` job
-  * You can use dashboard : `11568`
+  * You can use [this dashboard](https://gist.github.com/hatamiarash7/d27f51c6c6e5ab97f3abdbacf03ae9c0)
