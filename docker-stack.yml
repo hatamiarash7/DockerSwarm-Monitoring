@@ -134,6 +134,20 @@ services:
       restart_policy:
         condition: on-failure
 
+  pihole:
+    image: ekofr/pihole-exporter
+    ports:
+      - 9617:9617
+    env_file:
+      - ./pihole/config
+    deploy:
+      mode: global
+      placement:
+        constraints:
+          - node.role==manager
+      restart_policy:
+        condition: on-failure
+
 volumes:
     prometheus_data: {}
     grafana_data: {}
