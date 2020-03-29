@@ -23,3 +23,4 @@ You can update or remove this sources
   * Set your registry address in `docker-registry` job
 * PiHole
   * Configure ENV data of PiHole server in `pihole/config` file
+  * You can use dashboard id : `10176`
