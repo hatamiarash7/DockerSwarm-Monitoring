@@ -1,4 +1,4 @@
-version: '3.7'
+version: "3.7"
 
 services:
   traefik:
@@ -42,19 +42,19 @@ services:
       - ./prometheus/:/etc/prometheus/
       - prometheus_data:/prometheus
     command:
-      - '--config.file=/etc/prometheus/prometheus.yml'
-      - '--storage.tsdb.path=/prometheus'
-      - '--web.console.libraries=/usr/share/prometheus/console_libraries'
-      - '--web.console.templates=/usr/share/prometheus/consoles'
+      - "--config.file=/etc/prometheus/prometheus.yml"
+      - "--storage.tsdb.path=/prometheus"
+      - "--web.console.libraries=/usr/share/prometheus/console_libraries"
+      - "--web.console.templates=/usr/share/prometheus/consoles"
     deploy:
       placement:
         constraints:
           - node.role==manager
       labels:
-          - "traefik.frontend.rule=Host:prometheus.localhost"
-          - "traefik.backend=prometheus"
-          - "traefik.port=9090"
-          - "traefik.docker.network=traefik"
+        - "traefik.frontend.rule=Host:prometheus.localhost"
+        - "traefik.backend=prometheus"
+        - "traefik.port=9090"
+        - "traefik.docker.network=traefik"
       restart_policy:
         condition: on-failure
 
@@ -65,8 +65,8 @@ services:
       - /sys:/host/sys:ro
       - /:/rootfs:ro
     command:
-      - '--path.procfs=/host/proc'
-      - '--path.sysfs=/host/sys'
+      - "--path.procfs=/host/proc"
+      - "--path.sysfs=/host/sys"
       - --collector.filesystem.ignored-mount-points
       - "^/(sys|proc|dev|host|etc|rootfs/var/lib/docker/containers|rootfs/var/lib/docker/overlay2|rootfs/run/docker/netns|rootfs/var/lib/docker/aufs)($$|/)"
     ports:
@@ -86,12 +86,12 @@ services:
     volumes:
       - "./alertmanager/:/etc/alertmanager/"
     command:
-      - '--config.file=/etc/alertmanager/config.yml'
-      - '--storage.path=/alertmanager'
+      - "--config.file=/etc/alertmanager/config.yml"
+      - "--storage.path=/alertmanager"
     deploy:
       placement:
         constraints:
-           - node.role==manager
+          - node.role==manager
       restart_policy:
         condition: on-failure
 
@@ -113,7 +113,7 @@ services:
         condition: on-failure
 
   grafana:
-    image: grafana/grafana
+    image: grafana/grafana:6.7.1
     depends_on:
       - prometheus
     volumes:
@@ -149,5 +149,5 @@ services:
         condition: on-failure
 
 volumes:
-    prometheus_data: {}
-    grafana_data: {}
+  prometheus_data: {}
+  grafana_data: {}
