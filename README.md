@@ -32,4 +32,4 @@ You can update or remove this sources
   - You can use [this dashboard](https://gist.github.com/hatamiarash7/d27f51c6c6e5ab97f3abdbacf03ae9c0)
 - [Mikrotik](https://github.com/hatamiarash7/Mikrotik-Exporter)
   - Set address of exporter in `mikrotik` job
-  - Dashboard : **Coming soon**
+  - You can use [this dashboard](https://grafana.com/grafana/dashboards/12055)
