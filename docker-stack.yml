@@ -11,6 +11,8 @@ services:
       - "--storage.tsdb.path=/prometheus"
       - "--web.console.libraries=/usr/share/prometheus/console_libraries"
       - "--web.console.templates=/usr/share/prometheus/consoles"
+    expose:
+      - 9090
     networks:
       - monitoring
       - traefik
@@ -97,6 +99,8 @@ services:
     env_file:
       - ./grafana/config.monitoring
     user: "104"
+    expose:
+      - 3000
     networks:
       - monitoring
       - traefik
