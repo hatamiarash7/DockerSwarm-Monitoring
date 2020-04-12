@@ -39,7 +39,7 @@ scrape_configs:
   - job_name: "docker-registry"
     scrape_interval: 10s
     static_configs:
-      - targets: ["192.168.1.31:5001"]
+      - targets: ["registry.address:5001"]
 
   - job_name: "pihole"
     static_configs:
@@ -52,14 +52,20 @@ scrape_configs:
     static_configs:
       - targets:
           [
-            "192.168.1.14:9002",
-            "192.168.1.14:9003",
-            "192.168.1.14:9004",
-            "192.168.1.14:9005",
+            "minio.address:9002",
+            "minio.address:9003",
+            "minio.address:9004",
+            "minio.address:9005",
           ]
 
   - job_name: "mikrotik"
     scrape_interval: 5s
     scheme: http
     static_configs:
-      - targets: ["192.168.1.25:9436"]
+      - targets: ["mikrotik.address:9436"]
+
+  - job_name: "traefik"
+    scrape_interval: 5s
+    scheme: http
+    static_configs:
+      - targets: ["traefik.address"]
