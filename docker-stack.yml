@@ -11,6 +11,9 @@ services:
       - "--storage.tsdb.path=/prometheus"
       - "--web.console.libraries=/usr/share/prometheus/console_libraries"
       - "--web.console.templates=/usr/share/prometheus/consoles"
+    networks:
+      - monitoring
+      - traefik
     deploy:
       placement:
         constraints:
@@ -36,6 +39,8 @@ services:
       - "^/(sys|proc|dev|host|etc|rootfs/var/lib/docker/containers|rootfs/var/lib/docker/overlay2|rootfs/run/docker/netns|rootfs/var/lib/docker/aufs)($$|/)"
     ports:
       - 9100:9100
+    networks:
+      - monitoring
     deploy:
       mode: global
       placement:
@@ -53,6 +58,8 @@ services:
     command:
       - "--config.file=/etc/alertmanager/config.yml"
       - "--storage.path=/alertmanager"
+    networks:
+      - monitoring
     deploy:
       placement:
         constraints:
@@ -69,6 +76,8 @@ services:
       - /var/lib/docker/:/var/lib/docker:ro
     ports:
       - 8088:8080
+    networks:
+      - monitoring
     deploy:
       mode: global
       placement:
@@ -87,6 +96,9 @@ services:
     env_file:
       - ./grafana/config.monitoring
     user: "104"
+    networks:
+      - monitoring
+      - traefik
     deploy:
       placement:
         constraints:
@@ -105,6 +117,8 @@ services:
       - 9617:9617
     env_file:
       - ./pihole/config
+    networks:
+      - monitoring
     deploy:
       mode: global
       placement:
@@ -116,3 +130,9 @@ services:
 volumes:
   prometheus_data: {}
   grafana_data: {}
+
+networks:
+  monitoring:
+    driver: overlay
+  traefik:
+    external: true
