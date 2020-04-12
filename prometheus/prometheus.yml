@@ -68,4 +68,4 @@ scrape_configs:
     scrape_interval: 5s
     scheme: http
     static_configs:
-      - targets: ["traefik.address:8080"]
+      - targets: ["traefik.localhost:8080"]

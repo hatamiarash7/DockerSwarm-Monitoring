@@ -15,7 +15,7 @@ services:
       - monitoring
       - traefik
     extra_hosts:
-      - "traefik.address:192.168.1.14"
+      - "traefik.localhost:192.168.1.14"
       - "minio.address:192.168.1.14"
       - "mikrotik.address:192.168.1.25"
       - "registry.address:192.168.1.31"
