@@ -22,7 +22,8 @@ services:
         - "traefik.enable=true"
         - "traefik.http.routers.prometheus.rule=Host(`prometheus.localhost`)"
         - "traefik.http.routers.prometheus.entrypoints=web"
-        - "traefik.http.services.prometheus.loadbalancer.server.port=9090"
+        - "traefik.http.services.Monitoring_prometheus.loadbalancer.server.port=9090"
+        - "traefik.docker.network=traefik"
       restart_policy:
         condition: on-failure
 
@@ -107,7 +108,8 @@ services:
         - "traefik.enable=true"
         - "traefik.http.routers.grafana.rule=Host(`grafana.localhost`)"
         - "traefik.http.routers.grafana.entrypoints=web"
-        - "traefik.http.services.grafana.loadbalancer.server.port=3000"
+        - "traefik.http.services.Monitoring_grafana.loadbalancer.server.port=3000"
+        - "traefik.docker.network=traefik"
       restart_policy:
         condition: on-failure
 
